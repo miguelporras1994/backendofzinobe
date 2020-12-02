@@ -1,12 +1,12 @@
 const express = require('express')
-// const response = require('../../network/response')
+const response = require('../../network/response')
 const controller = require('./controller')
 const router =  express.Router();
 
 
 router.post('/' , function(req , res){
 
-    controller.addTercero(req.body)
+    controller.addGrupo(req.body)
     .then(data =>{
         response.success(req, res, data , 201 )
     })
@@ -23,7 +23,7 @@ router.get('/' , function(req , res){
     const   filterUser = req.query.name|| null;
 
   
-  controller.getTercero(filterUser)
+  controller.getGrupo(filterUser)
   .then((UserList) => {
       response.success(req, res, UserList, 200)
 
@@ -36,7 +36,7 @@ router.get('/' , function(req , res){
 
 router.patch('/:id', function(req , res){
    
-    controller.UpdateTercero(req.params.id, req.body)
+    controller.UpdateGrupo(req.params.id, req.body)
     .then((data) => {
         response.success(req, res, data, 200);
      })
@@ -49,7 +49,7 @@ router.patch('/:id', function(req , res){
 
 router.delete('/:id', function(req, res){
     console.log(req.params.id);
-     controller.deleteTercero(req.params.id)
+     controller.deleteGrupo(req.params.id)
      .then(() =>{
          response.success(req, res, `Usuario ${req.params.id} fue eliminado`, 200 )
      })

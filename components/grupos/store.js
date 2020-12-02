@@ -5,13 +5,13 @@ const Model = require('./model');
 
 
 
-function addTercero(user){
-     const MyUser = new Model(user)
-     console.log( 'mi user es ' + MyUser)
-      return MyUser.save();
+function addGrupo(Grupo){
+     const MyGrupo = new Model(Grupo)
+     console.log( 'mi user es ' + MyGrupo )
+      return  MyGrupo.save();
 }
 
-async function getTercero (filterUser){
+async function getGrupo(filterUser){
      let filter = {};
     if(filterUser !== null){
         filter = { name: filterUser };
@@ -20,7 +20,7 @@ async function getTercero (filterUser){
     return User;
 }
 
-async  function  updateTercero(id, Tercero){
+async  function  updateGrupo(id, Tercero){
 
     const foundTercero = await Model.findOne({
         _id: id
@@ -44,7 +44,7 @@ async  function  updateTercero(id, Tercero){
 }
 
 
-function deleteTercero(id){
+function deleteGrupo(id){
   
      return Model.deleteOne({
       _id: id
@@ -54,10 +54,10 @@ function deleteTercero(id){
 
 
 module.exports = {
-    add: addTercero,
-    list: getTercero ,
-    update:  updateTercero,
-    delete : deleteTercero
+    add: addGrupo,
+    list: getGrupo,
+    update:  updateGrupo,
+    delete : deleteGrupo
     // update
    
 }

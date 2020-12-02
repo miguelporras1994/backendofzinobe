@@ -4,13 +4,10 @@ const Schema = mongoose.Schema;
 
 
 const mySchema  = new Schema ({
-    Cedula: Number ,
-    Nombre: String,
-    Apellido: String,
-    Telefono: String,
-    Direccion : String,
-    Cargo : String,
-    Fecha_Nacimiento : Date,
+    
+    Descripcion: String,
+    Cantidad : Number,
+    Valor_Puntos : Number,
     Id_estado : [{
         type: Schema.ObjectId,
         ref: 'Estados',
@@ -20,6 +17,6 @@ const mySchema  = new Schema ({
     
 });
 
-const  model = mongoose.model('Tercero', mySchema);
+const  model = mongoose.model('Premio', mySchema);
 
 module.exports  = model;
